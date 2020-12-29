@@ -6,6 +6,9 @@ copy package.json .
 
 run npm install
 
+FROM nginx
+EXPOSE 80
+
 copy . .
 
 CMD ["npm", "run", "start"]
