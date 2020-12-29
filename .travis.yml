@@ -13,7 +13,7 @@ language: generic
 deploy:
   provider: elasticbeanstalk
   region: "us-east-1"
-  app: "Reactapp"
+  app: "ReactApp"
   env: "Reactapp-env"
   bucket_name: "elasticbeanstalk-us-east-1-494337673359"
   bucket_path: "Reactapp"
