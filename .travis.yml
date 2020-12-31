@@ -3,10 +3,24 @@ services:
   - docker
 
 before_install:
-  - docker build -t zhangchiwang/reactapp -f Dockerfile.dev .
+  - docker build -t zhangchiwang/reactapp-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true zhangchiwang/reactapp npm run test  
+  - docker run -e CI=true zhangchiwang/reactapp-test npm run test  
+
+
+after_success:
+  - docker build -t zhangchiwang/reactapp-client ./client
+  - docker build -t zhangchiwang/reactapp-server ./server
+  - docker build -t zhangchiwang/reactapp-nginx ./nginx
+  - docker build -t zhangchiwang/reactapp-worker ./worker
+
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"  --password-stdin
+  - docker push zhangchiwang/react-client
+  - docker push zhangchiwang/react-server
+  - docker push zhangchiwang/react-nginx
+  - docker push zhangchiwang/react-worker
 
 language: generic
 
