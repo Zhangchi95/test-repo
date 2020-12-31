@@ -24,18 +24,18 @@ after_success:
 
 language: generic
 
-deploy:
-  provider: elasticbeanstalk
-  region: "us-east-1"
-  app: "ReactApp"
-  env: "Reactapp-env"
-  bucket_name: "elasticbeanstalk-us-east-1-494337673359"
-  bucket_path: "Reactapp"
-  on:
-    branch: main
+#deploy:
+#  provider: elasticbeanstalk
+#  region: "us-east-1"
+#  app: "ReactApp"
+#  env: "Reactapp-env"
+#  bucket_name: "elasticbeanstalk-us-east-1-494337673359"
+#  bucket_path: "Reactapp"
+#  on:
+#    branch: main
 
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
+# access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key: $AWS_SECRET_KEY
 
 
 
